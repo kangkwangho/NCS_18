@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NCS18</title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            padding: 0rem;
+            margin: 0.3rem;
+        }
+
+        ol,
+        li {
+            list-style-type: none;
+        }
+
+        div,
+        ul {
+            width: 37rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        div {
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>학생 1</span>
+        <span>학생 2</span>
+        <span>학생 3</span>
+    </div>
+    <ul>
+        <li>
+            <input id="korean1" type="text" maxlength="3" max="100" placeholder="국어점수">
+            <input id="English1" type="text" maxlength="3" max="100" placeholder="영어점수">
+            <input id="Math1" type="text" maxlength="3" max="100" placeholder="수학점수">
+        </li>
+        <li>
+            <input id="korean2" type="text" maxlength="3" max="100" placeholder="국어점수">
+            <input id="English2" type="text" maxlength="3" max="100" placeholder="영어점수">
+            <input id="Math2" type="text" maxlength="3" max="100" placeholder="수학점수">
+        </li>
+        <li>
+            <input id="korean3" type="text" maxlength="3" max="100" placeholder="국어점수">
+            <input id="English3" type="text" maxlength="3" max="100" placeholder="영어점수">
+            <input id="Math3" type="text" maxlength="3" max="100" placeholder="수학점수">
+        </li>
+    </ul>
+    <div>
+        <button id="btn1">총 국어점수</button>
+        <button id="btn2">총 영어점수</button>
+        <button id="btn3">총 수학점수</button>
+    </div>
+    <div>
+        <input id="totalKorean" type="text" maxlength="3" max="300" placeholder="평균 국어점수">
+        <input id="totalEnglish" type="text" maxlength="3" max="300" placeholder="평균 영어점수">
+        <input id="totalMath" type="text" maxlength="3" max="300" placeholder="평균 수학점수">
+    </div>
+</body>
+<script>
+    let value1 = 0;
+    let value2 = 0;
+    let value3 = 0;
+    let result = 0;
+function calcValue(className, totalValue, value1, value2, value3){
+    $(className).click(() => {
+        contentValue1 = Number($(value1).val());
+        contentValue2 = Number($(value2).val());
+        contentValue3 = Number($(value3).val());
+        result = (contentValue1 + contentValue2 + contentValue3)/3;
+        $(totalValue).val(result.toFixed(2));
+    })
+}
+calcValue('#btn1', "#totalKorean","#korean1", "#korean2", "#korean3");
+calcValue('#btn2', "#totalEnglish","#English1", "#English2", "#English3");
+calcValue('#btn3', "#totalMath","#Math1", "#Math2", "#Math3");
+/*
+echo "# NCS_18" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/kangkwangho/NCS_18.git
+git push -u origin main
+*/
+</script>
+
+</html>
